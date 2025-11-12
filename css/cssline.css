@@ -105,7 +105,7 @@
     }
 
     /* Descripción que aparece en hover */
-    .description {
+    /*.description {
       position: absolute;
       bottom: -120px;
       left: 50%;
@@ -123,7 +123,7 @@
       visibility: hidden;
       transition: all 0.4s ease;
       z-index: 10;
-    }
+    }*/
 
     .event:hover .description {
       opacity: 1;
