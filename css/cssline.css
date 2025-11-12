@@ -163,10 +163,10 @@ body {
   .event::before {
     content: "";
     position: absolute;
-    left: -26px;
+    left: -28px;
     top: 70px;
-    width: 120px;
-    height: 12px;
+    width: 190px;
+    height: 10px;
     background-color: #002b6b;
     z-index: 1;
   }
