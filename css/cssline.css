@@ -132,7 +132,95 @@ body {
 }
 
 /* ===================== */
-/* VISTA MÓVIL CORREGIDA */
+/* VISTA TABLET (768px - 1024px) */
+/* ===================== */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .timeline {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 60px; /* Más espacio para la línea */
+  }
+
+  /* Línea vertical */
+  .timeline-line {
+    width: 10px;
+    height: calc(100% - 3rem);
+    left: 40px;
+    top: 3rem;
+    transform: none;
+  }
+
+  .event {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    margin: 4rem 0;
+    position: relative;
+    width: 100%;
+  }
+
+  /* Conector horizontal más corto para tablet */
+  .event::before {
+    content: "";
+    position: absolute;
+    left: -40px;
+    top: 70px;
+    width: 80px; /* Más corto que en móvil */
+    height: 10px;
+    background-color: #002b6b;
+    z-index: 1;
+  }
+
+  .marker {
+    width: 120px;
+    height: 120px;
+    font-size: 2rem;
+    margin-left: 0;
+    margin-bottom: 0;
+    margin-right: 2rem;
+    flex-shrink: 0;
+  }
+
+  .marker::after {
+    bottom: -20px;
+    border-left: 24px solid transparent;
+    border-right: 24px solid transparent;
+    border-top: 24px solid #c5a03f;
+  }
+
+  .label {
+    font-size: 1.6rem;
+    margin-top: 0;
+    min-height: auto;
+    text-align: left;
+    max-width: 400px;
+  }
+
+  /* Ajustes para descripción en tablet */
+  .description {
+    width: 320px;
+    font-size: 1.1rem;
+    bottom: -130px;
+    left: 0;
+    transform: none;
+  }
+
+  .event:hover .description {
+    bottom: -140px;
+  }
+
+  /* Corrección para el último evento en tablet */
+  .event:last-child {
+    margin-bottom: 3rem;
+  }
+
+  .event:last-child .label {
+    min-height: auto;
+  }
+}
+
+/* ===================== */
+/* VISTA MÓVIL (hasta 768px) */
 /* ===================== */
 @media (max-width: 768px) {
   .timeline {
@@ -159,13 +247,13 @@ body {
     width: 100%;
   }
 
-  /* 🔹 Conector más largo, perfectamente alineado */
+  /* Conector horizontal para móvil */
   .event::before {
     content: "";
     position: absolute;
     left: -28px;
     top: 70px;
-    width: 190px;
+    width: 120px; /* Longitud fija consistente */
     height: 10px;
     background-color: #002b6b;
     z-index: 1;
@@ -177,7 +265,7 @@ body {
     font-size: 2.2rem;
     margin-left: 90px;
     flex-shrink: 0;
-    margin-bottom: 3.5rem; /* Aumentado para dar más espacio al texto */
+    margin-bottom: 3.5rem;
   }
 
   .marker::after {
@@ -193,7 +281,7 @@ body {
     margin-top: 1.3rem;
     max-width: 300px;
     text-align: center;
-    min-height: 60px; /* Altura mínima para mantener consistencia */
+    min-height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -204,27 +292,71 @@ body {
     width: 280px;
     font-size: 1rem;
     bottom: -140px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .event:hover .description {
     bottom: -150px;
   }
 
-  /* 🔹 CORRECCIÓN ESPECÍFICA PARA EL ÚLTIMO EVENTO */
+  /* Corrección para el último evento en móvil */
   .event:last-child {
-    margin-bottom: 2rem; /* Reducir margen inferior del último elemento */
+    margin-bottom: 2rem;
   }
 
   .event:last-child .label {
-    min-height: 80px; /* Más espacio para el texto de dos líneas */
+    min-height: 80px;
   }
 
   .event:last-child .description {
-    bottom: -160px; /* Ajustar posición de la descripción */
+    bottom: -160px;
   }
 
   .event:last-child:hover .description {
     bottom: -170px;
+  }
+}
+
+/* ===================== */
+/* VISTA ESCRITORIO (más de 1024px) */
+/* ===================== */
+@media (min-width: 1025px) {
+  .timeline {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .timeline-line {
+    top: 50%;
+    width: 100%;
+    height: 14px;
+    left: 0;
+    transform: translateY(-50%);
+  }
+
+  .event {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .event::before {
+    display: none; /* Ocultar conectores en escritorio */
+  }
+
+  .marker {
+    margin-left: 0;
+    margin-bottom: 3.2rem;
+  }
+
+  .label {
+    text-align: center;
+    min-height: auto;
+  }
+
+  .description {
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
